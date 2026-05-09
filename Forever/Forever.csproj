@@ -1,0 +1,68 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+	<NoWarn>$(NoWarn);WFO5001</NoWarn>
+	<ApplicationIcon>forever.ico</ApplicationIcon>
+	<Title>Forever</Title>
+	<Authors>Roosens Limited</Authors>
+	<Product>Forever</Product>
+	<Copyright>2026 (c) Roosens Limited</Copyright>
+	<PackageProjectUrl>https://roosens.im</PackageProjectUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <COMReference Include="IWshRuntimeLibrary">
+      <WrapperTool>tlbimp</WrapperTool>
+      <VersionMinor>0</VersionMinor>
+      <VersionMajor>1</VersionMajor>
+      <Guid>f935dc20-1cf0-11d0-adb9-00c04fd58a0b</Guid>
+      <Lcid>0</Lcid>
+      <Isolated>false</Isolated>
+      <EmbedInteropTypes>true</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="forever.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProDotNetZip\ProDotNetZipNetStandard.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="ForeverInstaller.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="ucInstallerRoosensDecryptionKey.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="ucSelectRedistributables.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="ucTemplateInstaller.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="ucInstallerWelcome.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
