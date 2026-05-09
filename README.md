@@ -1,3 +1,4 @@
+![logo](/Information/forever.png)
 # Forever by Roosens Limited
 
 is a game preservation tool that helps you archive and protect your legally owned games for the long term. It functions as an installer and installer generator, allowing you to create and install complete, self-contained backups of your downloaded games with just a few clicks.
@@ -5,6 +6,8 @@ is a game preservation tool that helps you archive and protect your legally owne
 The tool automatically removes Roosens protection when a valid decryption key is provided (either during installer creation or at runtime). It also performs a security scan for any unsigned executables or DLL files, helping ensure the integrity and safety of your preserved archives by verifying that all code is properly signed by trusted publishers.
 
 **Forever** puts you in control of your personal game library, enabling true long-term preservation without relying on online stores or fragile downloads. It only handles Roosens DRM and does not remove any other forms of DRM.
+
+![logo](/Information/screenshot.png)
 
 ---
 
