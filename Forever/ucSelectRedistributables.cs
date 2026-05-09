@@ -254,12 +254,15 @@ namespace Forever
 
                 string selectedText = cbSteamRedistributables.Text;
 
-                foreach (var SteamFolderName in SteamFolderNames)
+                if (SteamFolderNames != null)
                 {
-                    if (selectedText.Contains($" ({SteamFolderName.Key})"))
+                    foreach (var SteamFolderName in SteamFolderNames)
                     {
-                        ForeverSettings.RedistributablesDirectory = SteamFolderName.Key;
-                        break;
+                        if (selectedText.Contains($" ({SteamFolderName.Key})"))
+                        {
+                            ForeverSettings.RedistributablesDirectory = SteamFolderName.Key;
+                            break;
+                        }
                     }
                 }
             }

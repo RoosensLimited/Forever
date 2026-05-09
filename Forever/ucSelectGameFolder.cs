@@ -218,13 +218,16 @@ namespace Forever
 
                 var selectedText = cbSteamGames.Text;
 
-                foreach (var SteamFolderName in SteamFolderNames)
+                if (SteamFolderNames != null)
                 {
-                    if (SteamGameToString(SteamFolderName) == selectedText)
+                    foreach (var SteamFolderName in SteamFolderNames)
                     {
-                        ForeverSettings.InstallationDirectory = SteamFolderName.Key;
-                        ForeverSettings.GameName = SteamFolderName.Value;
-                        break;
+                        if (SteamGameToString(SteamFolderName) == selectedText)
+                        {
+                            ForeverSettings.InstallationDirectory = SteamFolderName.Key;
+                            ForeverSettings.GameName = SteamFolderName.Value;
+                            break;
+                        }
                     }
                 }
             }
