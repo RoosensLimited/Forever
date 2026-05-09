@@ -16,5 +16,6 @@ The tool automatically removes Roosens protection when a valid decryption key is
 - Forever is intended exclusively for creating and installing personal backups of games that you legally own.
 - Distribution of installers created with this tool that contain copyrighted material is not allowed because that is ILLEGAL.
 - We support game preservation only for titles you have lawfully acquired. We do not support or condone piracy.
+- You acknowledge and agree that your use of the Software is at your own risk. Roosens shall not be liable for any damages whatsoever, whether direct, indirect, incidental, special, or consequential, arising out of or in any way connected with your use of the Software.
 
 By using this software, you agree to respect the above usage policy.
