@@ -7,24 +7,9 @@ The tool automatically removes Roosens protection when a valid decryption key is
 
 **Forever** puts you in control of your personal game library, enabling true long-term preservation without relying on online stores or fragile downloads. It only handles Roosens DRM and does not remove any other forms of DRM.
 
-![logo](/Information/screenshot.png)
+![installsettings](/Information/screenshot2.png)
 
----
-
-This software is released under the WTFPL (Do What The Fuck You Want To Public License) – Version 2.
-
-**DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE**  
-Version 2, December 2004  
-Copyright (C) 2004 Sam Hocevar <sam@hocevar.net>
-
-Everyone is permitted to copy and distribute verbatim or modified  
-copies of this license document, and changing it is allowed as long  
-as the name is changed.
-
-**DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE**  
-**TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION**
-
-0. You just DO WHAT THE FUCK YOU WANT TO.
+![roosenskeyform](/Information/screenshot.png)
 
 ## Usage Policy
 
