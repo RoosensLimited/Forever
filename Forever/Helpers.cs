@@ -147,7 +147,7 @@ namespace Forever
             return !Directory.EnumerateFileSystemEntries(path).Any();
         }
 
-        public static int RunProcess(string exePath, string arguments)
+    public static int RunProcess(string exePath, string arguments)
         {
             if (string.IsNullOrWhiteSpace(exePath))
                 throw new ArgumentException("Executable path cannot be empty", nameof(exePath));
@@ -158,7 +158,7 @@ namespace Forever
                 startInfo = new ProcessStartInfo
                 {
                     FileName = "cmd.exe",
-                    Arguments = $"/s /c \"{exePath}\" {arguments ?? ""}",
+                    Arguments = $"/s /c \"\"{exePath}\"\" {arguments ?? ""}",
                     UseShellExecute = false,
                     RedirectStandardOutput = false,
                     RedirectStandardError = false,

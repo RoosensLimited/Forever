@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Data;
 using System.IO;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace Forever
@@ -50,11 +51,18 @@ namespace Forever
         {
         }
 
-        public static bool RunSteamInstallScript(string vdfPath, string installDir)
+        private struct RedistProcess
         {
+            internal string Path;
+            internal string Command;
+        }
+        private List<RedistProcess> ParseSteamInstallScript(string vdfPath, string installDir)
+        {
+            var result = new List<RedistProcess>();
+
             if (!File.Exists(vdfPath))
             {
-                return false;
+                return result;
             }
 
             var vdfContent = File.ReadAllText(vdfPath);
@@ -83,7 +91,11 @@ namespace Forever
                                 command = (string)app[$"command {processId}"];
                             }
 
-                            Helpers.RunProcess(path, command);
+                            result.Add(new RedistProcess()
+                            {
+                                Path = path,
+                                Command = command,
+                            });
 
                             processId++;
                         }
@@ -91,7 +103,7 @@ namespace Forever
                 }
             }
 
-            return true;
+            return result;
         }
 
         private void bwInstalling_DoWork(object sender, DoWorkEventArgs e)
@@ -261,6 +273,7 @@ namespace Forever
 
                     var redistExecutables = Directory.EnumerateFiles(redistDirectory, "*.exe", SearchOption.AllDirectories);
                     var executedInstallScripts = new List<string>();
+
                     foreach (var redist in redistExecutables)
                     {
                         if (bwInstalling.CancellationPending)
@@ -278,7 +291,28 @@ namespace Forever
                                     continue;
                                 }
 
-                                RunSteamInstallScript(vdfPath, redistDirectory);
+                                var steamInstallScriptProcesses = ParseSteamInstallScript(vdfPath, redistDirectory);
+
+                                foreach (var redistProcess in steamInstallScriptProcesses)
+                                {
+                                    if (redistProcess.Path.ToLower().EndsWith(".cmd"))
+                                    {
+                                        DialogResult result = (DialogResult)this.Invoke((Func<DialogResult>)(() =>
+                                        {
+                                            return new ForeverCmdFile(redistProcess.Path).ShowDialog(this);
+                                        }));
+
+                                        if (result == DialogResult.Continue)
+                                        {
+                                            var exitCode = Helpers.RunProcess(redistProcess.Path, redistProcess.Command);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        var exitCode = Helpers.RunProcess(redistProcess.Path, redistProcess.Command);
+                                    }
+                                }
+
                                 executedInstallScripts.Add(vdfPath);
                             }
                         }

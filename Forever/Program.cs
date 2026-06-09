@@ -10,10 +10,6 @@ namespace Forever
 
             string exePath = Helpers.GetExecutablePath();
 
-#if DEBUG
-            exePath = "E:\\backups\\PoppyPlaytime_Chapter3\\setup.exe";
-#endif
-
             string currentFolder = Path.GetDirectoryName(exePath);
             string uninstallTxtPath = Path.Combine(currentFolder, "uninstall.txt");
 
